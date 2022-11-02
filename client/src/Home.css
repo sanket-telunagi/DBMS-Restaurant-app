@@ -1,0 +1,23 @@
+.bgimg {
+    background-image: url('https://www.w3schools.com/w3images/onepage_restaurant.jpg');
+    /* min-height: 100%; */
+    background-position: center;
+    background-size: cover;
+    height:742px;
+}
+body{
+    margin:0px;
+}
+
+.w3-jumbo {
+    font-size: 64px!important;
+}
+
+.w3-display-middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    color: #fff;
+}
