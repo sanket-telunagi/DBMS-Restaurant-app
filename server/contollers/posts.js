@@ -93,7 +93,7 @@ export const createOrder = async (req, res) => {
     catch (err) {
         res.status(409).json({ message: err.message });
     }
-    res.send('Sent Request');
+    // res.send('Sent Request');
 }
 
 export const getTable = async (req, res) => {

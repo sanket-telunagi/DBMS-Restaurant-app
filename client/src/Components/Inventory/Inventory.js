@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+import "./Inventory.css"
+
 const Inventory = () => {
   const [items, setItems] = useState([]);
   const [item_name,setItem_Name]=useState('');
@@ -86,19 +88,43 @@ const Inventory = () => {
       </h1>
       {
         items.map((data, index) => (
-          <div><h3>{index + 1}</h3><p>name:{data.name}</p><p>quantity:{data.quantity}</p>
-          <button id={index} onClick={(e)=>increaseQty(e)}>+</button><button id={index} onClick={(e)=>decreaseQty(e)}>-</button>
-          <p>price: Rs.{data.price}</p></div>
+          <div className='inventory-data'>
+            <h3>{index + 1}</h3>
+            <p>name:{data.name}</p>
+            <p>quantity:{data.quantity}</p>
+            <button id={index} onClick={(e)=>increaseQty(e)}>+</button>
+            <button id={index} onClick={(e)=>decreaseQty(e)}>-</button>
+            <p>price: Rs.{data.price}</p>
+          </div>
         ))
       }
-      <form onSubmit={(e)=>postIems(e)}>
-      <label> Item Name</label><input type='text' value={item_name} onChange={(e) => setItem_Name(e.target.value)} placeholder="type product name" /> 
-      <label> Item quantity</label><input type='number' value={quantity} onChange={(e) => setQuantity(e.target.value)} placeholder="enter number of quantity" /> 
-      <label> Item price</label><input type='number' value={price} onChange={(e) => setPrice(e.target.value)} placeholder="enter price for item" /> 
-      <button >
-        To add item
-      </button>
-      </form>
+      <div className='wrapper'>
+      <div className='container-addmenu'>
+        <h2>Inventory</h2>
+        <form onSubmit={(e)=>postIems(e)}>
+
+          <div className='inputBox'>
+            <input type='text' value={item_name} onChange={(e) => setItem_Name(e.target.value)} placeholder="Item Name" /> 
+          </div>
+
+          <div className='inputBox'>
+          
+          {/* <label> Item quantity</label> */}
+            <input type='number' value={quantity} onChange={(e) => setQuantity(e.target.value)} placeholder="enter number of quantity" /> 
+            
+          </div>
+          
+          <div className='inputBox'>
+          {/* <label> Item price</label> */}
+            <input type='number' value={price} onChange={(e) => setPrice(e.target.value)} placeholder="enter price for item" /> 
+          </div>
+
+          <div class="inputBox">
+              <input type="submit" value="Add Item"/>
+          </div>
+        </form>
+      </div>
+      </div>
     </div>
   );
 }
